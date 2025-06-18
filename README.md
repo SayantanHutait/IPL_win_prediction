@@ -41,6 +41,24 @@ pip install -r requirements.txt
    
    These files are not included in the repository due to size constraints. You can find IPL datasets on platforms like Kaggle or official IPL data sources.
 
+## API Key Setup
+
+### For Local Development:
+1. Create a `.streamlit/secrets.toml` file in your project directory:
+```toml
+GOOGLE_API_KEY = "your_google_api_key_here"
+```
+
+### For Streamlit Cloud Deployment:
+1. Go to your app on [Streamlit Cloud](https://share.streamlit.io/)
+2. Navigate to Settings → Secrets
+3. Add your Google API key:
+```toml
+GOOGLE_API_KEY = "your_google_api_key_here"
+```
+
+**Note**: The API key is required for AI-powered explanations. The app will work without it, but explanations will be disabled.
+
 ## Usage
 
 1. Run the Streamlit app:

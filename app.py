@@ -22,13 +22,24 @@ cities = ['Hyderabad', 'Bangalore', 'Mumbai', 'Indore', 'Kolkata', 'Delhi',
 pipe = pickle.load(open('pipe.pkl','rb'))
 players = pickle.load(open('players.pkl', 'rb'))
 
-# Configure Gemini
-genai.configure(api_key="AIzaSyC8qBdl58LQXDJGw0Eaaw5zB7Ts6PI0edU")
-model = genai.GenerativeModel("gemini-2.0-flash")
+# Configure Gemini with Streamlit secrets
+try:
+    genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
+    model = genai.GenerativeModel("gemini-2.0-flash")
+    ai_enabled = True
+except:
+    st.warning("⚠️ Google API key not found. AI explanations will be disabled.")
+    ai_enabled = False
 
 def get_explanation(prompt):
-    response = model.generate_content(prompt)
-    return response.text
+    if ai_enabled:
+        try:
+            response = model.generate_content(prompt)
+            return response.text
+        except Exception as e:
+            return f"AI explanation unavailable: {str(e)}"
+    else:
+        return "AI explanations are disabled. Please configure your Google API key in Streamlit secrets."
 
 st.title('IPL Win Predictor')
 

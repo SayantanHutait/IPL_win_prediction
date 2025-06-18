@@ -137,4 +137,7 @@ dmypy.json
 Thumbs.db
 
 # Data files
-*.csv 
+*.csv
+
+# Streamlit secrets
+.streamlit/secrets.toml 
