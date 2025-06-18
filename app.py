@@ -2,6 +2,7 @@ import streamlit as st
 import pickle
 import pandas as pd
 import google.generativeai as genai
+import joblib
 
 teams = ['Sunrisers Hyderabad',
  'Mumbai Indians',
