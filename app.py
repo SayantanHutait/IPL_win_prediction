@@ -19,8 +19,9 @@ cities = ['Hyderabad', 'Bangalore', 'Mumbai', 'Indore', 'Kolkata', 'Delhi',
        'Visakhapatnam', 'Pune', 'Raipur', 'Ranchi', 'Abu Dhabi',
        'Sharjah', 'Mohali', 'Bengaluru']
 
-pipe = pickle.load(open('pipe.pkl','rb'))
-players = pickle.load(open('players.pkl', 'rb'))
+pipe = joblib.load("pipe.joblib")
+players = joblib.load("players.joblib")
+
 
 def get_explanation(text):
     genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
