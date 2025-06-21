@@ -84,8 +84,8 @@ if st.button('Predict Probability'):
 
     # LLM Explanation
     prompt = f"""
-    Explain in simple terms in a short paragraph why {batting_team} has a win probability of {round(win*100)}%
-    and {bowling_team} has a loss probability of {round(loss*100)}%, based on these match details:
+    Explain in simple terms in a short paragraph why batting team: {batting_team} has a win probability of {round(win*100)}%
+    and bowling team: {bowling_team} has a win probability of {round(loss*100)}%, based on these match details:
     - Runs left: {runs_left}
     - Balls left: {balls_left}
     - Wickets in hand: {wickets}
